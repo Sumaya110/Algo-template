@@ -1,0 +1,32 @@
+vector<ll> g[20005];
+ll dis[505], p[505];
+ll cycle_check(ll n)
+{
+    ll ans=inf;
+    for(ll i=0; i<=n; i++)
+    {
+        for(ll j=0; j<=n;
+                j++)dis[j]=inf, p[j]= -1;
+        dis[i] = 0;
+        queue< ll > q;
+        q.push(i);
+        while(!q.empty())
+        {
+            ll x= q.front();
+            q.pop();
+            for(auto
+                    child: g[x])
+            {
+                if(dis[child]== inf)
+                {
+                    dis[child] = dis[x] + 1;
+                    q.push(child);
+                    p[child] = x;
+                }
+                else if(p[x] != child) ans =
+                        min(ans, dis[child]+dis[x]+1);
+            }
+        }
+    }
+    return ans;
+}
