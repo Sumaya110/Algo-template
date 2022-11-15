@@ -1,0 +1,46 @@
+ll cost[100005], n;
+vector<pair<ll,ll>>g[100005];
+void bfs(ll src)
+{
+    for(ll i=0; i<=n;
+            i++)cost[i]=inf;
+    cost[src]=0;
+    deque<ll>dq;
+    dq.push_back(src);
+    while(!dq.empty())
+    {
+        src=dq.front();
+        dq.pop_fro
+        nt();
+        for(ll i=0; i<g[src].size(); i++)
+        {
+            ll adj=g[src][i].first;
+            ll
+            cst=g[src][i].second;
+            if(cost[src]+cst<cost[adj])
+            {
+                cost[adj]=cost[src]+cst;
+                dq.push_back(adj);
+            }
+        }
+    }
+}
+int main()
+{
+    ll
+    x,y,w;
+    cin>>n;
+    ll ans=0;
+    for(int i=0; i<n-1; i++)
+    {
+        cin>>x>>y>>w;
+        ans+=2*w;
+        g[x].push_back({y,w});
+        g[y].push_back({x,w});
+    }
+    bfs(1LL);
+    ll mx=0;
+    for(int i=1; i<=n; i++)mx=
+            max(mx, cost[i]);
+    cout<<ans-mx;
+}
