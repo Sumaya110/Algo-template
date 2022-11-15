@@ -1,0 +1,16 @@
+ll mul_via_add(ll a, ll n, ll mod)
+{
+    if(n==0) return 0;
+    else if(n%2==0)
+    {
+        ll p=mul_via_add(a, n/2, mod)
+             %mod;
+        return (p+p)%mod;
+    }
+    else
+    {
+        ll p= mul_via_add(a, n-1, mod) %mod;
+        a%=mod;
+        return (p+a)%mod;
+    }
+}
