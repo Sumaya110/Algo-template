@@ -1,0 +1,19 @@
+ll parent[5005], b[5010];
+ll Find(ll u)
+{
+    if(u == parent[u]) return u;
+    return parent[u] = Find(parent[u]);
+}
+void Union(ll u, ll v)
+{
+    ll p = Find(u);
+    ll q = Find(v);
+    if(p!=q)
+    {
+        if(b[q]>b[p])
+            swap(p,q);
+
+        parent[q] = p;
+        b[p]+= b[q];
+    }
+}
