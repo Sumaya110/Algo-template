@@ -1,0 +1,8 @@
+ll jogmod (ll a, ll b)
+{
+    if(b== 0LL) return 0LL;
+    ll x= jogmod(a, b/2);
+    x = 2*x;
+    if(b%2 == 1) x = a+x;
+    return x;
+}
