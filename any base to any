@@ -1,0 +1,13 @@
+ll bin(ll n)
+{
+    ll r, i=1, b=0;
+    ll base=2; /* in which base*/ ll inc=10; /* from which base*/
+    while(n)
+    {
+        r=n%base;
+        n/=base;
+        b+=r*i;
+        i*=inc;
+    }
+    return b;
+}
