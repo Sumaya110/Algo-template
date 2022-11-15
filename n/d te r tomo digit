@@ -1,0 +1,9 @@
+ll solve(ll n, ll d, ll r)
+{
+    while(r--)
+    {
+        n = n%d;
+        n= n*10;
+    }
+    return n/d;
+}
