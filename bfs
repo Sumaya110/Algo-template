@@ -1,0 +1,25 @@
+void bfs(ll rt)
+{
+    ll src, adj;
+    src=rt;
+    deque<ll>dq;
+    vis[rt]=1;
+    lvl[src]=1;
+    dq.push_back(src);
+    while(!dq.empty())
+    {
+        src=dq.front();
+        dq.pop_front();
+        for(int i=0; i<graph[src].size(); i++)
+        {
+            adj=
+                graph[src][i];
+            if(vis[adj]==0)
+            {
+                vis[adj]=1;
+                lvl[adj]=lvl[src]+1;
+                dq.push_back(adj);
+            }
+        }
+    }
+}
