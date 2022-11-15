@@ -1,0 +1,13 @@
+bool dfs(int child, int parent)
+{
+    vis[child]=1;
+    if(c[parent]==1)c[child]=2;
+    else c[child]=1;
+    for(auto x:
+            g[child])
+    {
+        if(vis[x] && c[child]==c[x])return false;
+        else if(vis[x]==0)dfs(x, child);
+    }
+    return true;
+}
