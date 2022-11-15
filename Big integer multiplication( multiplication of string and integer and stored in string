@@ -1,0 +1,28 @@
+string multiply( string lcm, ll b)
+{
+    int carry = 0;
+    for(int i=0; i<lcm.size(); i++)
+    {
+        carry+= (lcm[i]-'0')*b;
+        lcm[i] =
+            (carry %10) +'0';
+        carry/=10;
+    }
+    while(carry)
+    {
+        lcm+=(carry%10)+'0';
+        carry /=10;
+    }
+    return lcm;
+}
+int main()
+{
+    string
+    lcm='1';
+    for(int i=0; i<v.size(); i++)
+    {
+        lcm = multiply(lcm, v[i]);
+    }
+    reverse(lcm.begin(), lcm.end());
+    print(lcm);
+}
